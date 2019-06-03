@@ -17,6 +17,20 @@
         <lwjgl.version>3.2.2</lwjgl.version>
     </properties>
 
+    <scm>
+        <url>http://github.com/paul-nelson-baker/lwjgl-archetype/tree/master</url>
+        <connection>scm:git:git://github.com/paul-nelson-baker/lwjgl-archetype.git</connection>
+        <developerConnection>scm:git:git@github.com:paul-nelson-baker/lwjgl-archetype.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://raw.githubusercontent.com/paul-nelson-baker/lwjgl-archetype/master/LICENSE</url>
+        </license>
+    </licenses>
+
     <dependencies>
         <dependency>
             <groupId>org.lwjgl</groupId>
