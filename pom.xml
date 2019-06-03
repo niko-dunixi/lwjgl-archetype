@@ -8,6 +8,10 @@
     <version>1.1-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
+    <name>${artifactId}</name>
+    <description>A simple archetype for generating LWJGL projects quickly</description>
+    <url>https://github.com/paul-nelson-baker/lwjgl-archetype</url>
+
     <scm>
         <url>http://github.com/paul-nelson-baker/lwjgl-archetype/tree/master</url>
         <connection>scm:git:git://github.com/paul-nelson-baker/lwjgl-archetype.git</connection>
@@ -21,6 +25,20 @@
             <url>https://raw.githubusercontent.com/paul-nelson-baker/lwjgl-archetype/master/LICENSE</url>
         </license>
     </licenses>
+
+    <developers>
+        <developer>
+            <id>Paul Freakn Baker</id>
+            <name>Paul Nelson Baker</name>
+            <email>paul.nelson.baker@gmail.com</email>
+            <roles>
+                <role>Senior Software Engineer</role>
+                <role>AWS Certified Developer</role>
+                <role>Mad Computer Scientist</role>
+            </roles>
+        </developer>
+    </developers>
+
 
     <build>
         <extensions>
@@ -39,6 +57,57 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
     <distributionManagement>
