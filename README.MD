@@ -11,7 +11,7 @@ Where ever you create your projects, run the following to create a brand new LWJ
 mvn archetype:generate \
   -DarchetypeGroupId=io.paulbaker.archetypes \
   -DarchetypeArtifactId=lwjgl-archetype \
-  -DarchetypeVersion=1.1
+  -DarchetypeVersion=1.2
 ```
 
 To make running your application simpler, the pom is configured to run whenever a jar is created.
