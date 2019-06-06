@@ -39,13 +39,13 @@ public class Main implements AutoCloseable, Runnable {
      * Convienience method that also satisfies Runnable
      */
     public void run() {
-        System.out.println("Starting LWJGL " + Version.getVersion());
         init();
         loop();
     }
 
     public void init() {
         createPrint(System.err).set();
+        System.out.println("Starting LWJGL " + Version.getVersion());
         if (!glfwInit()) {
             throw new IllegalStateException("Unable to initialize GLFW");
         }
