@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.NULL;
  * <p>
  * Modified from <a href="https://www.lwjgl.org/guide">original example</a>
  */
-public class Main implements AutoCloseable {
+public class Main implements AutoCloseable, Runnable {
 
     private static final String windowTitle = "Hello, World!";
     private static final int windowWidth = 300;
@@ -35,13 +35,16 @@ public class Main implements AutoCloseable {
         }
     }
 
+    /**
+     * Convienience method that also satisfies Runnable
+     */
     public void run() {
         System.out.println("Starting LWJGL " + Version.getVersion());
         init();
         loop();
     }
 
-    private void init() {
+    public void init() {
         createPrint(System.err).set();
         if (!glfwInit()) {
             throw new IllegalStateException("Unable to initialize GLFW");
@@ -77,7 +80,7 @@ public class Main implements AutoCloseable {
         glClearColor(0.0f, 0.0f, 0.2f, 0.0f);
     }
 
-    private void loop() {
+    public void loop() {
         while (!glfwWindowShouldClose(windowHandle)) {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glfwSwapBuffers(windowHandle);
