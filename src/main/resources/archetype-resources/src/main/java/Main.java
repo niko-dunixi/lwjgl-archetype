@@ -1,9 +1,7 @@
 package ${package};
 
 import org.lwjgl.Version;
-import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
-import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryStack;
 
 import java.nio.IntBuffer;
@@ -26,6 +24,9 @@ import static org.lwjgl.system.MemoryUtil.NULL;
  */
 public class Main implements AutoCloseable {
 
+    private static final String windowTitle = "Hello, World!";
+    private static final int windowWidth = 300;
+    private static final int windowHeight = 300;
     private long windowHandle;
 
     public static void main(String... args) {
@@ -48,7 +49,7 @@ public class Main implements AutoCloseable {
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-        windowHandle = glfwCreateWindow(300, 300, "Hello World!", NULL, NULL);
+        windowHandle = glfwCreateWindow(windowWidth, windowHeight, windowTitle, NULL, NULL);
         if (windowHandle == NULL) {
             throw new RuntimeException("Failed to create the GLFW window");
         }
