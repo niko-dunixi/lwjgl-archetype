@@ -36,7 +36,7 @@ public class Main implements AutoCloseable, Runnable {
     }
 
     /**
-     * Convienience method that also satisfies Runnable
+     * Convenience method that also satisfies Runnable
      */
     public void run() {
         init();
