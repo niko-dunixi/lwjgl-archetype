@@ -4,7 +4,7 @@
 
     <groupId>io.paulbaker.archetypes</groupId>
     <artifactId>lwjgl-archetype</artifactId>
-    <version>1.3-SNAPSHOT</version>
+    <version>1.3</version>
     <packaging>maven-archetype</packaging>
 
     <name>${artifactId}</name>
@@ -15,7 +15,7 @@
         <url>http://github.com/paul-nelson-baker/lwjgl-archetype/tree/master</url>
         <connection>scm:git:git://github.com/paul-nelson-baker/lwjgl-archetype.git</connection>
         <developerConnection>scm:git:git@github.com:paul-nelson-baker/lwjgl-archetype.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>lwjgl-archetype-1.3</tag>
     </scm>
 
     <licenses>
