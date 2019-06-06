@@ -10,6 +10,8 @@ import java.nio.IntBuffer;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
 import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.glfw.GLFWErrorCallback.createPrint;
+import static org.lwjgl.opengl.GL.createCapabilities;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryStack.stackPush;
 import static org.lwjgl.system.MemoryUtil.NULL;
@@ -39,7 +41,7 @@ public class Main implements AutoCloseable {
     }
 
     private void init() {
-        GLFWErrorCallback.createPrint(System.err).set();
+        createPrint(System.err).set();
         if (!glfwInit()) {
             throw new IllegalStateException("Unable to initialize GLFW");
         }
@@ -69,11 +71,13 @@ public class Main implements AutoCloseable {
         glfwMakeContextCurrent(windowHandle);
         glfwSwapInterval(1);
         glfwShowWindow(windowHandle);
+        createCapabilities();
+        System.out.println("OpenGL: " + glGetString(GL_VERSION));
+        glClearColor(0.0f, 0.0f, 0.2f, 0.0f);
     }
 
     private void loop() {
-        GL.createCapabilities();
-        glClearColor(0.0f, 0.0f, 0.2f, 0.0f);
+
         while (!glfwWindowShouldClose(windowHandle)) {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glfwSwapBuffers(windowHandle);
